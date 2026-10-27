@@ -1,0 +1,13 @@
+Android Internet USB
+Modifications et interface : Roy, 2026.
+
+Contient des sources dérivées de Gnirehtet 2.5.1.
+Copyright (C) 2017 Genymobile — Apache License 2.0.
+Projet d’origine : https://github.com/Genymobile/gnirehtet
+
+Modifications : interface française, cycle USB, présence du PC, suspension,
+test HTTPS, journalisation, commandes USB et compagnon Windows.
+V1.02 : sélection USB générique et configuration de signature externalisée.
+
+Les outils binaires distribués dans les releases conservent leurs licences.
+Voir LICENSE-Gnirehtet.txt et Tools/NOTICE-Android.txt dans l’archive.

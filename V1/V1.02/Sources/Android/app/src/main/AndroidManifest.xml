@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <application android:name=".UsbApplication" android:allowBackup="false"
+        android:label="Internet USB" android:icon="@drawable/ic_usb_24dp"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".ControlReceiver" android:exported="true"
+            android:permission="android.permission.WRITE_SECURE_SETTINGS" />
+        <service android:name=".GnirehtetService" android:exported="true"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter><action android:name="android.net.VpnService" /></intent-filter>
+        </service>
+    </application>
+</manifest>

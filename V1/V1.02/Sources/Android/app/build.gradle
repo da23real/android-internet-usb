@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'fr.roy.internetusb'
+    compileSdk 35
+    buildFeatures { buildConfig true }
+    // Sideloaded application; not a Google Play release.
+    lint { disable 'ExpiredTargetSdkVersion' }
+    defaultConfig {
+        applicationId 'fr.roy.internetusb'
+        minSdk 23
+        targetSdk 28 // Tested on Android 9; newer Android versions require validation.
+        versionCode 102
+        versionName '1.02'
+    }
+    signingConfigs {
+        local {
+            if (System.getenv('INTERNETUSB_KEYSTORE')) {
+                storeFile file(System.getenv('INTERNETUSB_KEYSTORE'))
+                storePassword System.getenv('INTERNETUSB_STORE_PASSWORD')
+                keyAlias System.getenv('INTERNETUSB_KEY_ALIAS')
+                keyPassword System.getenv('INTERNETUSB_KEY_PASSWORD')
+            }
+        }
+    }
+    buildTypes { release {
+        if (System.getenv('INTERNETUSB_KEYSTORE')) signingConfig signingConfigs.local
+        minifyEnabled false
+    } }
+}
+

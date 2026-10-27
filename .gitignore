@@ -1,0 +1,11 @@
+**/Build/
+**/build/
+**/.gradle/
+**/Distribution/
+**/Logs/
+**/local.properties
+*.log
+*.jks
+*.keystore
+*.p12
+.env*
